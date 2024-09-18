@@ -4,6 +4,7 @@ import mongoose, {Schema} from "mongoose";
 const productShema = new Schema({
     name: {
         type: String,
+        unique: true,
         required: true,
     },
     price: {
@@ -18,6 +19,6 @@ const productShema = new Schema({
     timestamps:true
   });
 
-  const product = mongoose.model('Peoduct',productShema)
+  const product = mongoose.model('Product',productShema)
 
   export default product
