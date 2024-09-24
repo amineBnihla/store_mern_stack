@@ -1,31 +1,26 @@
-import AppBar from '@mui/material/AppBar';
+
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { useTheme } from '@mui/material';
+import { useContext } from 'react';
+import { DarkModeContext } from '../theme';
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar() {
+export default function Header() {
+   const palette = useTheme().palette
+   const {toggleColor} = useContext(DarkModeContext)
+   console.log(palette.mode)
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon /> */}
-          {/* </IconButton> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+    <Box display={'flex'} px={'20px'}  justifyContent={'space-between'}  height={'60px'} alignItems={'center'} sx={{backgroundColor:palette.background.main}}>
+  
+          <Typography variant="body1" sx={{ flexGrow: 1 }}>
+            Overview
           </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+          <Box>
+          <Button color="inherit" onClick={toggleColor}>Login</Button>
+          </Box>
     </Box>
   );
 }
