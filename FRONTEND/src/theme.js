@@ -34,7 +34,7 @@ let them = createTheme({
     background:{main:"#171717"},
     grey:{main:"#0000"},
     link:{main:"#B1B1B1"},
-    text:{main:"#232323"},
+    text:{main:"#ffff"},
     green:{main:"#16DBCC"},
     pink:{main:"#FE5C73"},
     blueshade:{main:"#718EBF"}

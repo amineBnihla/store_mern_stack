@@ -1,4 +1,4 @@
-import { Breadcrumbs, Typography } from "@mui/material"
+import { Breadcrumbs, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom"
 
 
@@ -6,10 +6,11 @@ import { Link } from "react-router-dom"
 
 
 const Product = () => {
+  const palette = useTheme().palette
   return (
     <>
     <Breadcrumbs aria-label="breadcrumb">
-  <Link underline="hover" color="inherit" href="/dashboard">
+  <Link style={{textDecoration:"none",display:"block",color:palette.text.main}} underline="hover" color="inherit" href="/dashboard">
     Dashboard
   </Link>
 
