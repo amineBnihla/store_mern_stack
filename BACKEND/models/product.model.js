@@ -1,4 +1,6 @@
+
 import mongoose, {Schema} from "mongoose";
+
 
 
 const productShema = new Schema({
@@ -15,6 +17,7 @@ const productShema = new Schema({
         type: String,
         required: true,
     },
+   category: {type: mongoose.Types.ObjectId, ref: "Category"}
   },{
     timestamps:true
   });

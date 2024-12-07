@@ -25,9 +25,14 @@ let them = createTheme({
     grey:{main:"#F5F7FA"},
     link:{main:"#B1B1B1"},
     text:{main:"#232323"},
+    black:{main:"#232323"},
+    white:{main:"#FFFF"},
     green:{main:"#16DBCC"},
     pink:{main:"#FE5C73"},
-    blueshade:{main:"#718EBF"}
+    blueshade:{main:"#718EBF"},
+    danger:{main:"#ffcbd1"},
+    text_danger:{main:"#880000"}
+    
    }:{
  primary:{main:"#2D60FF"},
     secondary:{main:"#343C6A"},
@@ -36,8 +41,12 @@ let them = createTheme({
     link:{main:"#B1B1B1"},
     text:{main:"#ffff"},
     green:{main:"#16DBCC"},
+       black:{main:"#232323"},
+    white:{main:"#FFFF"},
     pink:{main:"#FE5C73"},
-    blueshade:{main:"#718EBF"}
+    blueshade:{main:"#718EBF"},
+      danger:{main:"#ffcbd1"},
+    text_danger:{main:"#880000"}
    }) 
   },
   // typography:{
@@ -60,7 +69,7 @@ them.typography.body1 = {
     them.typography.h1={
       fontSize:"2.8rem"
     }
-    them.typography. h={
+    them.typography.h2={
       fontSize:"2.2rem"
     }
      them.typography.h3={
