@@ -6,6 +6,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import {  useLayoutEffect } from "react";
 import { useAuthStore } from "../src/store/authStore";
 import  { Toaster } from 'react-hot-toast';
+import { CgSpinner } from "react-icons/cg";
 function App() {
   const [theme,toggleColor] = useColor()
   const {verify_auth,isLoadingApp} = useAuthStore()
@@ -15,7 +16,7 @@ function App() {
         verify_auth()
     },[verify_auth])
      if (isLoadingApp) {
-    return <div>Loading...</div>; // Display a loader until ready
+    return <div className="h-screen grid place-content-center"><CgSpinner className="animate-spin text-slate-600" size={70} /></div>; // Display a loader until ready
   }
   return (
     <>

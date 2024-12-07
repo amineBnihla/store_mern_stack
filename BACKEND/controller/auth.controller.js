@@ -8,7 +8,7 @@ export const SignUp = async (req,res)=>{
 try {
    
    if(email == "" || password == "" ||  name == ""){
-      return res.status(400).json({message:"Fill all inputs"})
+      return res.status(400).json({message:"All fields are required"})
   }
   const userExsiste = await User.findOne({email}).exec()
   if(userExsiste){
@@ -30,7 +30,7 @@ try {
   
    await sendVerificationEmail(user.email,verificationToken)
   
-    res.status(200).json({message:'User Added successfuly',user:{
+    res.status(200).json({message:'User added successfully',user:{
      ...user._doc,
      password:null
    }})
@@ -95,7 +95,7 @@ try {
 export const Logout = (req,res)=>{
 
    res.clearCookie('token')
-   res.status(200).json({succcess:true,message:'user logout successfuly'})
+   res.status(200).json({succcess:true,message:'user logged out successfuly'})
 
 }
 
