@@ -10,7 +10,8 @@ export const useAuthStore = create((set,get)=>({
     message:"",
 
     
-    isLoading:true,
+    isLoading:false,
+    isLoadingApp:false,
     signup:async ({email,password,name})=>{
         set({isLoading:true,errorMessage:""})
      try{
@@ -40,7 +41,7 @@ export const useAuthStore = create((set,get)=>({
      }
     },
     login:async ({email,password})=>{
-    set({isLoading:false,errorMessage:""})
+    set({isLoading:true,errorMessage:""})
     try {
      const response = await api.post(`/auth/login`,{email,password})
        if(response.data.user){
@@ -53,18 +54,18 @@ export const useAuthStore = create((set,get)=>({
     }
     },
     verify_auth:async ()=>{
-     set({error:"",errorMessage:"",isAuthenticated:false})
+     set({error:"",errorMessage:"",isAuthenticated:false,isLoadingApp:true})
      try {
           const res = await api.get(`/auth/verify-user`)
-          set({user:res.data.user,isAuthenticated:true,isLoading:false})
+          set({user:res.data.user,isAuthenticated:true,isLoadingApp:false})
           console.log(get().user,get().isAuthenticated)
      } catch (error) {
-           set({isAuthenticated:false,isLoading:false})
+           set({isAuthenticated:false,isLoadingApp:false})
            throw error
      }
     },
      forgetPassword:async ({email})=>{
-    set({isLoading:false,errorMessage:""})
+    set({isLoading:true,errorMessage:""})
     try {
       await api.post(`/auth/forget-password`,{email})
        set({isLoading:false,errorMessage:""})
@@ -74,7 +75,7 @@ export const useAuthStore = create((set,get)=>({
     }
     },
       resetPassword:async (token,password,confirmationPassword)=>{
-    set({isLoading:false,errorMessage:""})
+    set({isLoading:true,errorMessage:""})
     try {
      const response = await api.post(`/auth/reset-password/${token}`,{password,confirmationPassword})
        console.log(response)

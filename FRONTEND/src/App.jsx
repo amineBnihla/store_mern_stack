@@ -8,11 +8,13 @@ import { useAuthStore } from "../src/store/authStore";
 import  { Toaster } from 'react-hot-toast';
 function App() {
   const [theme,toggleColor] = useColor()
-  const {verify_auth,isLoading} = useAuthStore()
+  const {verify_auth,isLoadingApp} = useAuthStore()
+
   useLayoutEffect(()=>{
+  
         verify_auth()
     },[verify_auth])
-     if (isLoading) {
+     if (isLoadingApp) {
     return <div>Loading...</div>; // Display a loader until ready
   }
   return (
